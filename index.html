@@ -1,11 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172c">
+  <title>星屑ランナー</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    hello world
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="星屑ランナー ホーム">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>星屑ランナー</span>
+      </a>
+      <p class="topbar-note">星を集めて、夜明けのゲートへ</p>
+    </header>
+
+    <section class="game-card" aria-label="横スクロールアクションゲーム">
+      <div class="game-hud" aria-live="polite">
+        <div class="hud-group">
+          <div class="hud-stat"><span class="hud-icon heart-icon" aria-hidden="true">♥</span><span id="lives">♥ ♥ ♥</span></div>
+          <div class="hud-stat"><span class="hud-icon star-icon" aria-hidden="true">✦</span><span id="star-count">0 / 8</span></div>
+        </div>
+        <div class="hud-level"><span class="level-dot"></span> STAGE 01 <span class="hud-divider">/</span> よるの草原</div>
+        <button class="sound-button" id="restart-button" type="button" aria-label="最初からやり直す" title="最初からやり直す">↻</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="960" height="540" aria-label="星を集めながらゴールを目指すゲーム"></canvas>
+        <div class="screen" id="screen">
+          <div class="screen-card">
+            <div class="screen-kicker" id="screen-kicker">A LITTLE NIGHT ADVENTURE</div>
+            <h1 id="screen-title">星をあつめよう</h1>
+            <p id="screen-copy">草原を駆け抜けて、光る星を集めよう。<br>敵はジャンプで踏むか、攻撃で倒せるよ。</p>
+            <button class="primary-button" id="start-button" type="button">冒険をはじめる <span aria-hidden="true">→</span></button>
+            <p class="screen-hint">移動 <kbd>←</kbd> <kbd>→</kbd>　ジャンプ <kbd>Space</kbd>　攻撃 <kbd>X</kbd></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-footer">
+        <span><span class="footer-key">← →</span> 移動 <span class="footer-separator">·</span> <span class="footer-key">Space</span> ジャンプ <span class="footer-separator">·</span> <span class="footer-key">X</span> 攻撃</span>
+        <span class="footer-tip">敵の上に着地すると踏みつけ！</span>
+      </div>
+    </section>
+
+    <nav class="touch-controls" aria-label="タッチ操作">
+      <div class="touch-move">
+        <button type="button" data-control="left" aria-label="左へ移動">←</button>
+        <button type="button" data-control="right" aria-label="右へ移動">→</button>
+      </div>
+      <div class="touch-actions">
+        <button type="button" data-control="attack" aria-label="攻撃">✦</button>
+        <button class="jump-button" type="button" data-control="jump" aria-label="ジャンプ">↑</button>
+      </div>
+    </nav>
+    <p class="page-caption">ちいさな冒険のはじまり。</p>
+  </main>
+  <script src="game.js"></script>
 </body>
 </html>
